@@ -4,7 +4,7 @@ import '../styles/App.scss';
 function Header() {
   return (
     <header>
-        <h1>Plan your meals for the week</h1>
+        <h1>Easy mealplanning</h1>
     </header>
   )
 }

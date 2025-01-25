@@ -1,10 +1,13 @@
 import '../styles/Reset.scss';
 import '../styles/App.scss';
-import WeekSchedule from './Week-schedule';
+import WeekSchedule from './WeekSchedule';
 
 function Main() {
   return (
-    <WeekSchedule />
+    <main>
+      <WeekSchedule />
+    </main>
+    
   )
 }
 
