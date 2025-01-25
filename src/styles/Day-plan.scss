@@ -8,13 +8,23 @@ h1 {
 
 main {
     background-color: rgb(29, 28, 28);
+    
 }
 
 .week {
     width: 100%;
+    
 
-    & ul {
+    &-days {
         width: 100%;
+        display: flex;
+        flex-direction: column;
+
+        @media(min-width: 768px) {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
     }
 }
 
@@ -24,6 +34,14 @@ main {
     flex-direction: column;
     justify-items: center;
     margin: 10px auto;
+
+    @media(min-width: 768px) {
+        width: 33%;
+    }
+
+    @media(min-width: 1000px) {
+        width: 25%;
+    }
 
     & h3 {
         font-size: 1.5rem;
@@ -50,6 +68,10 @@ main {
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         padding: 18px;
         margin: auto;
+
+        @media(min-width: 768px) {
+            flex-direction: column;
+        }
 
         &-item {
             display: flex;
@@ -107,6 +129,6 @@ caption {
     background-color: gold
   }
 
-.hiddens {
+.hidden {
     display: none;
 }

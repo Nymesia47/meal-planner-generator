@@ -4,7 +4,7 @@ import '../styles/Day-plan.scss';
 function WeekSchedule() {
   return (
     <section className="week">
-            <ul>
+            <ul className="week-days">
                 <li className='dayCard'>
                     <h3 className="peach-bg">Monday</h3>
                     <ul className='dayCard-meals-list'>
