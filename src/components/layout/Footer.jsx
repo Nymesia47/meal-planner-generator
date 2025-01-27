@@ -1,5 +1,3 @@
-import '../styles/Reset.scss';
-import '../styles/App.scss';
 
 function Footer() {
   return (

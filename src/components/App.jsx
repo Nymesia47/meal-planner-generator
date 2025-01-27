@@ -1,8 +1,8 @@
 import '../styles/Reset.scss';
 import '../styles/App.scss';
-import Header from '../components/Header';
-import Main from '../components/Main';
-import Footer from '../components/Footer';
+import Header from '../components/layout/Header.jsx';
+import Main from '../components/layout/Main.jsx';
+import Footer from '../components/layout/Footer.jsx';
 
 function App() {
   

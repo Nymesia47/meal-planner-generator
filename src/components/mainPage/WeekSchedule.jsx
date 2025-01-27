@@ -1,5 +1,4 @@
-import '../styles/Reset.scss';
-import '../styles/Day-plan.scss';
+import '/src/styles/Day-plan.scss'
 
 function WeekSchedule() {
   return (

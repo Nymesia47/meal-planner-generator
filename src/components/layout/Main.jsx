@@ -1,6 +1,5 @@
-import '../styles/Reset.scss';
-import '../styles/App.scss';
-import WeekSchedule from './WeekSchedule';
+
+import WeekSchedule from '../mainPage/WeekSchedule.jsx';
 
 function Main() {
   return (

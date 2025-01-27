@@ -1,5 +1,4 @@
-import '../styles/Reset.scss';
-import '../styles/App.scss';
+import '/src/styles/Header.scss'
 
 function Header() {
   return (
