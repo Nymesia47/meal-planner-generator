@@ -4,9 +4,15 @@ import PropTypes from 'prop-types';
 
 
 function NavListLink(props) {
+
+  const handleClick = (ev) => {
+    console.log("I work")
+ 
+  }
+
   return (
-    <li>
-        <a href="">{props.text}</a>
+    <li onClick={handleClick}>
+      {props.text}
     </li>
   )
 };
