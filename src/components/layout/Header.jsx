@@ -3,7 +3,7 @@ import '/src/styles/Header.scss'
 function Header() {
   return (
     <header>
-        <h1>Easy mealplanning</h1>
+        <h1>Easy Meal Planning</h1>
     </header>
   )
 }
