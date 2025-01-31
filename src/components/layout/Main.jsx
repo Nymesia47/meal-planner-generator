@@ -16,7 +16,7 @@ function Main() {
     <main>
       <NavList planTheWeekFormDisplay= {planTheWeekFormDisplay} setPlanTheWeekFormDisplay= {setPlanTheWeekFormDisplay}/>
       <PlanTheWeekForm planTheWeekFormDisplay= {planTheWeekFormDisplay} planningData={planningData} setPlanningData={setPlanningData}/>
-      <WeekSchedule />
+      <WeekSchedule planningData={planningData}/>
     </main>
     
   )

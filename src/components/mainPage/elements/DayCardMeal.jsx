@@ -7,8 +7,8 @@ function DayCardMeal({title, colorBg}) {
       <h4>{title}</h4>
       <ul>
         <DayCardMealCourse text="Main" />
-        <DayCardMealCourse text="Side" />
-        <DayCardMealCourse text="Dessert" />
+        {/* <DayCardMealCourse text="Side" />
+        <DayCardMealCourse text="Dessert" /> */}
       </ul>
     </li>
   )
