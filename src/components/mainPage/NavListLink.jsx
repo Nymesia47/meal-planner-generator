@@ -3,22 +3,23 @@ import PropTypes from 'prop-types';
 
 
 
-function NavListLink(props) {
+function NavListLink({text, setPlanTheWeekFormDisplay}) {
 
-  const handleClick = (ev) => {
-    console.log("I work")
+  const handleClick = () => {
+    setPlanTheWeekFormDisplay("");
  
   }
 
   return (
     <li onClick={handleClick}>
-      {props.text}
+      {text}
     </li>
   )
 };
 
 NavListLink.propTypes = {
-    text: PropTypes.string
+    text: PropTypes.string,
+    setPlanTheWeekFormDisplay: PropTypes.func
 };
 
 export default NavListLink

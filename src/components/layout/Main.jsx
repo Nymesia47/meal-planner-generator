@@ -10,8 +10,8 @@ function Main() {
 
   return (
     <main>
-      <NavList />
-      <PlanTheWeekForm planTheWeekFormDisplay= {planTheWeekFormDisplay}/>
+      <NavList planTheWeekFormDisplay= {planTheWeekFormDisplay} setPlanTheWeekFormDisplay= {setPlanTheWeekFormDisplay}/>
+      <PlanTheWeekForm planTheWeekFormDisplay= {planTheWeekFormDisplay} setPlanTheWeekFormDisplay= {setPlanTheWeekFormDisplay}/>
       <WeekSchedule />
     </main>
     
