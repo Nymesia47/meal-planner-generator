@@ -1,7 +1,7 @@
 
-function DayCardMealCourse({text}) {
+function DayCardMealCourse({text, mealOption}) {
   return (
-    <li className='dayCard-meals-list-item_option lavenderblush-bg'>{text}</li>
+    <li className='dayCard-meals-list-item_option lavenderblush-bg'>{text}{mealOption}</li>
   )
 }
 
