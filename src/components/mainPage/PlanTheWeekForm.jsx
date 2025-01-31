@@ -1,4 +1,5 @@
 import '/src/styles/PlanTheWeekForm.scss';
+import PropTypes from 'prop-types';
 
 function PlanTheWeekForm({planTheWeekFormDisplay}) {
   return (
@@ -34,5 +35,9 @@ function PlanTheWeekForm({planTheWeekFormDisplay}) {
     </section>
   )
 }
+
+PlanTheWeekForm.propTypes = {
+  planTheWeekFormDisplay: PropTypes.string
+};
 
 export default PlanTheWeekForm

@@ -1,5 +1,6 @@
 import '/src/styles/NavList.scss';
 import NavListLink from "./NavListLink"
+import PropTypes from 'prop-types';
 
 
 function NavList({planTheWeekFormDisplay, setPlanTheWeekFormDisplay}) {
@@ -14,5 +15,12 @@ function NavList({planTheWeekFormDisplay, setPlanTheWeekFormDisplay}) {
     
   )
 }
+
+NavList.propTypes = {
+    planTheWeekFormDisplay: PropTypes.string,
+    setPlanTheWeekFormDisplay: PropTypes.func
+};
+
+
 
 export default NavList
