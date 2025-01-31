@@ -6,12 +6,16 @@ import { useState } from 'react';
 
 function Main() {
   const [planTheWeekFormDisplay, setPlanTheWeekFormDisplay] = useState ("hidden");
+  const planningData_initial_state = {
+    days: []
+  }
+  const [planningData, setPlanningData] = useState(planningData_initial_state);
 
 
   return (
     <main>
       <NavList planTheWeekFormDisplay= {planTheWeekFormDisplay} setPlanTheWeekFormDisplay= {setPlanTheWeekFormDisplay}/>
-      <PlanTheWeekForm planTheWeekFormDisplay= {planTheWeekFormDisplay} setPlanTheWeekFormDisplay= {setPlanTheWeekFormDisplay}/>
+      <PlanTheWeekForm planTheWeekFormDisplay= {planTheWeekFormDisplay} planningData={planningData} setPlanningData={setPlanningData}/>
       <WeekSchedule />
     </main>
     
