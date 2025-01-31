@@ -1,4 +1,4 @@
-import DayCard from './elements/DayCard'
+// import DayCard from './elements/DayCard'
 import '/src/styles/Day-plan.scss'
 import DayCardMeal from './elements/DayCardMeal'
 
