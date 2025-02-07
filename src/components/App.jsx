@@ -1,15 +1,14 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import LandingPage from "./pages/LandingPage";
-import MyMealsPage from "./pages/MyMealsPage";
+import MealsListsPage from "./pages/MealsListsPage";
+
 
 function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<LandingPage />} />
-        <Route path="/my-meals" element={<MyMealsPage />} />
-      </Routes>
-    </Router>
+    <Routes>
+      <Route path="/" element={<LandingPage />} />
+      <Route path="/my-meals" element={<MealsListsPage />} />
+    </Routes>
   );
 }
 
