@@ -26,6 +26,8 @@ function LandingPage() {
 
   const [planningData, setPlanningData] = useState(planningData_initial_state);
 
+  
+
 
 
   return (
