@@ -25,6 +25,7 @@ function LandingPage() {
   const planningData_initial_state = { days: [] };
 
   const [planningData, setPlanningData] = useState(planningData_initial_state);
+  const [mealPlan, setMealPlan] = useState([])
 
   
 
@@ -35,7 +36,7 @@ function LandingPage() {
       <Header />
       <main>
         <ActionsPanel planningData={planningData} setPlanningData={setPlanningData}/>
-        <ResultsSection />  
+        <ResultsSection planningData={planningData}/>  
       </main>
       <Footer />
     </div>
