@@ -1,18 +1,16 @@
-import '../styles/Reset.scss';
-import '../styles/App.scss';
-import Header from '../components/layout/Header.jsx';
-import Main from '../components/layout/Main.jsx';
-import Footer from '../components/layout/Footer.jsx';
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import MyMealsPage from "./pages/MyMealsPage";
 
 function App() {
-  
   return (
-  <>
-    <Header />
-    <Main />
-    <Footer />
-  </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/my-meals" element={<MyMealsPage />} />
+      </Routes>
+    </Router>
   );
 }
 
-export default App
+export default App;
