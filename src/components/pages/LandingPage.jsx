@@ -25,7 +25,24 @@ function LandingPage() {
   const planningData_initial_state = { days: [] };
 
   const [planningData, setPlanningData] = useState(planningData_initial_state);
-  const [mealPlan, setMealPlan] = useState([])
+  const [mealPlan, setMealPlan] = useState([]);
+
+  //Function to shuffle an array
+  function shuffleMeals(meals) {
+    const shuffled = [...meals];
+    for(let i = shuffled.length -1; i>0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [meals[i], meals[j]] = [meals[j], meals[i]];
+    }
+    return shuffled;
+  }
+  
+  //Function to generate random meal plan
+  const createMealPlan = ()=> {
+    const shuffledMeals = shuffleMeals(dinnerOptions);
+    const mealsForWeek = shuffledMeals.slice(0, planningData.days.length);
+    setMealPlan(mealsForWeek);
+  }
 
   
 
@@ -35,8 +52,11 @@ function LandingPage() {
     <div>
       <Header />
       <main>
-        <ActionsPanel planningData={planningData} setPlanningData={setPlanningData}/>
-        <ResultsSection planningData={planningData}/>  
+        <ActionsPanel planningData={planningData} 
+        setPlanningData={setPlanningData}
+        createMealPlan={createMealPlan}
+        />
+        <ResultsSection planningData={planningData} mealPlan={mealPlan}/>  
       </main>
       <Footer />
     </div>

@@ -1,9 +1,17 @@
+import PropTypes from "prop-types";
 
+function CreateMealPlanbtn({createMealPlan}) {
+  const handleClickCreate = ()=> {
+    createMealPlan()
+  }
 
-function CreateMealPlanbtn() {
   return (
-    <button type="submit">Create Meal Plan</button>
+    <button type="submit" onClick={handleClickCreate}>Create Meal Plan</button>
   )
 }
 
-export default CreateMealPlanbtn
+export default CreateMealPlanbtn;
+
+CreateMealPlanbtn.propTypes = {
+  createMealPlan: PropTypes.func.isRequired
+}

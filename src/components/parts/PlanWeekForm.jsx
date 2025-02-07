@@ -1,10 +1,10 @@
 import PropTypes from "prop-types";
 import CreateMealPlanbtn from "./CreateMealPlanbtn";
 
-function PlanWeekForm({planningData, setPlanningData}) {
+function PlanWeekForm({planningData, setPlanningData, createMealPlan}) {
 
   //Adds the selected days in the Planning Data
-  const dayOrder = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
+  const daysOfWeek = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"];
 
   const handleDaySelection = (ev) => {
     const {value, checked} = ev.target;
@@ -18,11 +18,11 @@ function PlanWeekForm({planningData, setPlanningData}) {
         updatedDays= prevPlanningData.days.filter((day) => day !== value);
       };
 
-      updatedDays.sort((a, b) => {
-        return dayOrder.indexOf(a) - dayOrder.indexOf(b);
+      const sortedDays = [...updatedDays].sort((a, b) => {
+        return daysOfWeek.indexOf(a) - daysOfWeek.indexOf(b);
       }); 
 
-      return { ...prevPlanningData, days: updatedDays };
+      return { ...prevPlanningData, days: sortedDays };
     });
   };
   
@@ -32,17 +32,19 @@ function PlanWeekForm({planningData, setPlanningData}) {
   }
 
   //Renders the days to select in the form
-  const daysSelection = ["monday", "tuesday", "wednesday", "thursday", "friday", "saturday", "sunday"].map((day) => (
-    <label key={day}>
-      <input
-        type="checkbox"
-        value={day}
-        name="days[]"
-        onChange={handleDaySelection}
-        checked={planningData.days.includes(day)}
-      />
-      {day.charAt(0).toUpperCase() + day.slice(1)}
-    </label>
+  const daysSelection = daysOfWeek.map((day) => (
+    <li key={day}>
+      <label >
+        <input
+          type="checkbox"
+          value={day}
+          name="days[]"
+          onChange={handleDaySelection}
+          checked={planningData.days.includes(day)}
+        />
+        {day.charAt(0).toUpperCase() + day.slice(1)}
+      </label>
+    </li> 
   ))
 
   return (
@@ -52,11 +54,11 @@ function PlanWeekForm({planningData, setPlanningData}) {
         <fieldset>
           <legend id="days-selection-legend">Select which days of the week you want to plan for:</legend>
 
-          <div role="group" aria-labelledby="days-selection-legend">
+          <ul role="group" aria-labelledby="days-selection-legend">
             {daysSelection}
-          </div>
+          </ul>
         </fieldset>
-        <CreateMealPlanbtn/>
+        <CreateMealPlanbtn createMealPlan={createMealPlan}/>
       </form>
     </section>
   )
@@ -66,5 +68,6 @@ export default PlanWeekForm;
 
 PlanWeekForm.propTypes = {
   planningData: PropTypes.object.isRequired, 
-  setPlanningData: PropTypes.func.isRequired
+  setPlanningData: PropTypes.func.isRequired,
+  createMealPlan: PropTypes.func.isRequired
 }
