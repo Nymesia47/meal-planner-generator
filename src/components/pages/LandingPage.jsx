@@ -44,9 +44,6 @@ function LandingPage() {
     setMealPlan(mealsForWeek);
   }
 
-  
-
-
 
   return (
     <div>

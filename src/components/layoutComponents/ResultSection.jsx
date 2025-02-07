@@ -1,11 +1,16 @@
 import PropTypes from "prop-types";
 import DayCard from "../parts/DayCard";
 
-function ResultSection({planningData}) {
+function ResultSection({planningData, mealPlan}) {
 
-  const weekPlanHTML = planningData.days.map((day) => {
+  const weekPlanHTML = planningData.days.map((day, index) => {
+    const meal = mealPlan[index];
+
     return (
-      <DayCard key={day} weekDay={day.charAt(0).toUpperCase() + day.slice(1)}/>
+      <DayCard key={day} 
+      weekDay={day.charAt(0).toUpperCase() + day.slice(1)}
+      meal={meal}
+      />
     )
   });
 
@@ -21,4 +26,5 @@ function ResultSection({planningData}) {
 export default ResultSection;
 ResultSection.propTypes = {
     planningData: PropTypes.object.isRequired, 
+    mealPlan: PropTypes.array
 }
