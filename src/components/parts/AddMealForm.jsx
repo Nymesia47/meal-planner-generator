@@ -2,7 +2,10 @@
 
 function AddMealForm() {
   return (
-    <div>AddMealForm</div>
+    <section>
+      <h2>Add a meal to your library</h2>
+      <form action=""></form>
+    </section>
   )
 }
 

@@ -1,7 +1,12 @@
+import PlanWeekButton from "../parts/PlanWeekButton";
+import PlanWeekForm from "../parts/PlanWeekForm";
 
 function ActionsPanel() {
   return (
-    <div>ActionsPanel</div>
+    <section>
+      <PlanWeekButton />
+      <PlanWeekForm />
+    </section>
   )
 }
 
