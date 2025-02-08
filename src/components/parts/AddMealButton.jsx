@@ -1,8 +1,13 @@
+import PropTypes from "prop-types";
 
-function AddMealButton() {
+function AddMealButton({handleClickForm}) {
   return (
-    <div>AddMealButton</div>
+    <button onClick={() => handleClickForm("addMeal")}>Add new meal</button>
   )
 }
 
-export default AddMealButton
+export default AddMealButton;
+
+AddMealButton.propTypes = {
+  handleClickForm: PropTypes.func.isRequired
+}
