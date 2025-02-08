@@ -1,8 +1,14 @@
+import PropTypes from "prop-types";
 
-function PlanWeekButton() {
+function PlanWeekButton({handleClickForm}) {
+
   return (
-    <div>PlanWeekButton</div>
+    <button onClick={() => handleClickForm("planWeek")}>Plan your Week</button>
   )
 }
 
-export default PlanWeekButton
+export default PlanWeekButton;
+
+PlanWeekButton.propTypes = {
+  handleClickForm: PropTypes.func.isRequired
+}

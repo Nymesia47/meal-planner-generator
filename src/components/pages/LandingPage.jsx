@@ -3,6 +3,8 @@ import Footer from "../layoutComponents/Footer";
 import ActionsPanel from "../layoutComponents/ActionsPanel";
 import ResultsSection from "../layoutComponents/ResultSection";
 import { useState } from "react";
+import PlanWeekForm from "../parts/PlanWeekForm";
+import AddMealForm from "../parts/AddMealForm";
 
 function LandingPage() {
 
@@ -44,15 +46,24 @@ function LandingPage() {
     setMealPlan(mealsForWeek);
   }
 
+  //On button click display respective form
+  const [activeForm, setActiveForm] = useState(null);
+
+  const handleClickForm = (formType) => {
+    setActiveForm((prevForm) => (prevForm === formType ? null : formType));
+  }
+  
+
 
   return (
     <div>
       <Header />
       <main>
-        <ActionsPanel planningData={planningData} 
-        setPlanningData={setPlanningData}
-        createMealPlan={createMealPlan}
-        />
+        <ActionsPanel handleClickForm={handleClickForm}/>
+        {activeForm === "addMeal" && <AddMealForm />}
+        {activeForm === "planWeek" && <PlanWeekForm planningData={planningData} 
+        setPlanningData={setPlanningData} 
+        createMealPlan={createMealPlan}/>}
         <ResultsSection planningData={planningData} mealPlan={mealPlan}/>  
       </main>
       <Footer />

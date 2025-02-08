@@ -1,14 +1,10 @@
 import PlanWeekButton from "../parts/PlanWeekButton";
-import PlanWeekForm from "../parts/PlanWeekForm";
 import PropTypes from "prop-types";
 
-function ActionsPanel({planningData, setPlanningData, createMealPlan}) {
+function ActionsPanel({handleClickForm}) {
   return (
     <section>
-      <PlanWeekButton />
-      <PlanWeekForm planningData={planningData} 
-      setPlanningData={setPlanningData} 
-      createMealPlan={createMealPlan}/>
+      <PlanWeekButton handleClickForm={handleClickForm}/>
     </section>
   )
 }
@@ -16,7 +12,5 @@ function ActionsPanel({planningData, setPlanningData, createMealPlan}) {
 export default ActionsPanel;
 
 ActionsPanel.propTypes = {
-  planningData: PropTypes.object.isRequired, 
-  setPlanningData: PropTypes.func.isRequired,
-  createMealPlan: PropTypes.func.isRequired
+  handleClickForm: PropTypes.func.isRequired
 }
