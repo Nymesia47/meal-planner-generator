@@ -1,8 +1,9 @@
 import PropTypes from "prop-types";
+import "/src/styles/ActionsPanelBtn.scss";
 
 function AddMealButton({handleClickForm}) {
   return (
-    <button onClick={() => handleClickForm("addMeal")}>Add new meal</button>
+    <button className="actionBtn" onClick={() => handleClickForm("addMeal")}>Add new meal</button>
   )
 }
 

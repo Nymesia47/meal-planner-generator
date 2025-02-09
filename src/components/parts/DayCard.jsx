@@ -1,11 +1,12 @@
 import PropTypes from "prop-types";
+import "/src/styles/DayCard.scss";
 import DayCardMeal from "./DayCardMeal"
 
 function DayCard({weekDay, meal}) {
   return (
-    <li>
+    <li className="dayCard">
         <h3>{weekDay}</h3>
-        <ul>
+        <ul className='dayCard-meals-list'>
             <DayCardMeal title="Dinner" meal={meal ? meal.title : ""}/>
         </ul>
     </li>

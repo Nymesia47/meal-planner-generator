@@ -1,4 +1,5 @@
 import { Route, Routes } from "react-router-dom";
+import "../styles/Reset.scss";
 import LandingPage from "./pages/LandingPage";
 import MealsListsPage from "./pages/MealsListsPage";
 

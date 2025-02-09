@@ -1,10 +1,11 @@
 import PlanWeekButton from "../parts/PlanWeekButton";
 import AddMealButton from "../parts/AddMealButton";
 import PropTypes from "prop-types";
+import "/src/styles/ActionsPanel.scss";
 
 function ActionsPanel({handleClickForm}) {
   return (
-    <section>
+    <section className="actions-panel">
       <AddMealButton handleClickForm={handleClickForm}/>
       <PlanWeekButton handleClickForm={handleClickForm}/>
     </section>

@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "/src/styles/Form.scss";
 import CreateMealPlanbtn from "./CreateMealPlanbtn";
 
 function PlanWeekForm({planningData, setPlanningData, createMealPlan}) {
@@ -42,15 +43,15 @@ function PlanWeekForm({planningData, setPlanningData, createMealPlan}) {
           onChange={handleDaySelection}
           checked={planningData.days.includes(day)}
         />
-        {day.charAt(0).toUpperCase() + day.slice(1)}
+        {" "}{day.charAt(0).toUpperCase() + day.slice(1)}
       </label>
     </li> 
   ))
 
   return (
     <section>
-      <h2>Your week requirements</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="form-title">Your week requirements</h2>
+      <form className="form" onSubmit={handleSubmit}>
         <fieldset>
           <legend id="days-selection-legend">Select which days of the week you want to plan for:</legend>
 

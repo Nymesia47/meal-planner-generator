@@ -1,9 +1,10 @@
 import PropTypes from "prop-types";
+import "/src/styles/ActionsPanelBtn.scss";
 
 function PlanWeekButton({handleClickForm}) {
 
   return (
-    <button onClick={() => handleClickForm("planWeek")}>Plan your Week</button>
+    <button className="actionBtn" onClick={() => handleClickForm("planWeek")}>Plan your Week</button>
   )
 }
 

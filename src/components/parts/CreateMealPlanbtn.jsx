@@ -6,7 +6,7 @@ function CreateMealPlanbtn({createMealPlan}) {
   }
 
   return (
-    <button type="submit" onClick={handleClickCreate}>Create Meal Plan</button>
+    <button className="form-button" type="submit" onClick={handleClickCreate}>Create Meal Plan</button>
   )
 }
 

@@ -21,19 +21,20 @@ function AddMealForm({handleSubmit, addMeal}) {
 
   return (
     <section>
-      <h2>Add a meal to your library</h2>
-      <form onSubmit={handleSubmit}>
+      <h2 className="form-title" >Add a meal to your library</h2>
+      <form className="form" onSubmit={handleSubmit}>
         <label htmlFor="title">Meal:</label>
         <input
           type="text"
           id="title"
           name="title"
           value={mealTitle}
+          className="form-text-input"
           onChange={(ev) => setMealTitle(ev.target.value)}
           required
         />
         {errorMsg}
-      <button type="submit" onClick={handleAddMeal}> Add Meal</button>
+      <button className="form-button" type="submit" onClick={handleAddMeal}> Add Meal</button>
       </form>
     </section>
   )
