@@ -1,7 +1,7 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
 
-function AddMealForm({handleSubmit, addMeal}) {
+function AddMealForm({addMeal}) {
   const [mealTitle, setMealTitle] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const mealTypeOptions = ["Breakfast", "Lunch", "Dinner", "Side", "Dessert"];
@@ -53,7 +53,7 @@ function AddMealForm({handleSubmit, addMeal}) {
   return (
     <section>
       <h2 className="form-title" >Add a meal to your library</h2>
-      <form className="form" onSubmit={handleSubmit}>
+      <form className="form" onSubmit={handleAddMeal}>
         <label htmlFor="title">
           Meal:
           <input
@@ -84,6 +84,5 @@ function AddMealForm({handleSubmit, addMeal}) {
 export default AddMealForm;
 
 AddMealForm.propTypes = {
-  handleSubmit: PropTypes.func.isRequired,
   addMeal: PropTypes.func.isRequired
 }

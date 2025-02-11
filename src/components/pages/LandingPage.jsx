@@ -46,9 +46,9 @@ function LandingPage() {
     setMealPlan(mealsForWeek);
   }
 
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
-  }
+  // const handleSubmit = (ev) => {
+  //   ev.preventDefault();
+  // }
 
   //On button click display respective form
   const [activeForm, setActiveForm] = useState(null);
@@ -60,8 +60,6 @@ function LandingPage() {
   //function to add a new meal
   const addMeal = (newMeal)=> {
     setDinnerOptions((prevMeals) => [...prevMeals, newMeal])
-
-
   }
   
 
@@ -71,7 +69,7 @@ function LandingPage() {
       <Header />
       <main>
         <ActionsPanel handleClickForm={handleClickForm}/>
-        {activeForm === "addMeal" && <AddMealForm handleSubmit={handleSubmit} addMeal={addMeal}/>}
+        {activeForm === "addMeal" && <AddMealForm addMeal={addMeal}/>}
         {activeForm === "planWeek" && <PlanWeekForm planningData={planningData} 
         setPlanningData={setPlanningData} 
         createMealPlan={createMealPlan}/>}

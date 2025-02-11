@@ -1,4 +1,5 @@
 import PropTypes from "prop-types";
+import "/src/styles/ResultSection.scss";
 import DayCard from "../parts/DayCard";
 
 function ResultSection({planningData, mealPlan}) {
@@ -16,7 +17,7 @@ function ResultSection({planningData, mealPlan}) {
 
   return (
     <section>
-      <ul>
+      <ul className="dayCardList">
         {weekPlanHTML}
       </ul>
     </section>
