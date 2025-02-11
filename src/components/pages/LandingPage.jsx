@@ -8,7 +8,7 @@ import AddMealForm from "../parts/AddMealForm";
 
 function LandingPage() {
 
-  const [dinnerOptions, setDinnerOptions] = useState([
+  const [mealOptions, setDinnerOptions] = useState([
     {title : "Spinach's Hamburger", plate_id : 1},
     {title : "Sausages", plate_id : 2},
     {title : "Empanadillas", plate_id : 3},
@@ -34,14 +34,14 @@ function LandingPage() {
     const shuffled = [...meals];
     for(let i = shuffled.length -1; i>0; i--) {
       const j = Math.floor(Math.random() * (i + 1));
-      [meals[i], meals[j]] = [meals[j], meals[i]];
+      [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]];
     }
     return shuffled;
   }
   
   //Function to generate random meal plan
   const createMealPlan = ()=> {
-    const shuffledMeals = shuffleMeals(dinnerOptions);
+    const shuffledMeals = shuffleMeals(mealOptions);
     const mealsForWeek = shuffledMeals.slice(0, planningData.days.length);
     setMealPlan(mealsForWeek);
   }
