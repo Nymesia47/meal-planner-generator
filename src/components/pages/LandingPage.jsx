@@ -8,20 +8,19 @@ import AddMealForm from "../parts/AddMealForm";
 
 function LandingPage() {
 
-  const [mealOptions, setDinnerOptions] = useState([
-    {title : "Spinach's Hamburger", plate_id : 1},
-    {title : "Sausages", plate_id : 2},
-    {title : "Empanadillas", plate_id : 3},
-    {title : "Pescado en salsa rubia", plate_id : 4},
-    {title : "Courgette's Frittata", plate_id : 5},
-    {title : "Quesadillas", plate_id : 6},
-    {title : "Cream of Vegetables", plate_id : 7},
-    {title : "Quesadillas", plate_id : 8},
-    {title : "Pastina", plate_id : 9},
-    {title : "Cocido de arroz", plate_id : 10},
-    {title : "Courgette Penwheels", plate_id : 11},
-    {title : "Mini CheeseBurgers", plate_id : 12},
-    {title : "Eggs Muffins", plate_id: 13}
+  const [mealOptions, setMealOptions] = useState([
+  { plate_id: 1, title: "Spinach's Hamburger", type: ["Dinner"] },
+  { plate_id: 2, title: "Sausages", type: ["Dinner"] },
+  { plate_id: 3, title: "Empanadillas", type: ["Dinner"] },
+  { plate_id: 4, title: "Pescado en salsa rubia", type: ["Dinner"] },
+  { plate_id: 5, title: "Courgette's Frittata", type: ["Breakfast", "Dinner"] },
+  { plate_id: 6, title: "Quesadillas", type: ["Dinner"] },
+  { plate_id: 7, title: "Cream of Vegetables", type: ["Dinner"] },
+  { plate_id: 8, title: "Pastina", type: ["Dinner"] },
+  { plate_id: 9, title: "Cocido de arroz", type: ["Lunch", "Dinner"] },
+  { plate_id: 10, title: "Courgette Penwheels", type: ["Dinner"] },
+  { plate_id: 11, title: "Mini CheeseBurgers", type: ["Dinner"] },
+  { plate_id: 12, title: "Eggs Muffins", type: ["Breakfast","Dinner"] }
   ]);
 
   const planningData_initial_state = { days: [] };
@@ -59,7 +58,7 @@ function LandingPage() {
 
   //function to add a new meal
   const addMeal = (newMeal)=> {
-    setDinnerOptions((prevMeals) => [...prevMeals, newMeal])
+    setMealOptions((prevMeals) => [...prevMeals, newMeal])
   }
   
 

@@ -6,7 +6,37 @@ function AddMealForm({addMeal}) {
   const [errorMsg, setErrorMsg] = useState("");
   const mealTypeOptions = ["Breakfast", "Lunch", "Dinner", "Side", "Dessert"];
   const [mealType, setMealType] = useState([]);
+  const [mainIngredients, setMainIngredients] = useState([]);
 
+  //Handle Meal Type selection
+  const handleChangeType = (ev)=> {
+    setMealType((prev) => 
+      ev.target.checked 
+      ? [...prev, ev.target.value] 
+      : prev.filter((t) => t !== ev.target.value));
+  }
+
+  // Add an empty input field
+  const handleAddIngredient = () => {
+    if (mainIngredients.length < 3) {
+      setMainIngredients([...mainIngredients, ""]); 
+    }
+  };
+  
+  //updates mainIngredients value
+  const handleChangeIngredient = (index) => (ev) => {
+    const updatedIngredients = [...mainIngredients];
+    updatedIngredients[index] = ev.target.value;
+    setMainIngredients(updatedIngredients);
+  };
+  
+  //Remove ingredient
+  const handleRemoveIngredient = (index) => {
+    const filteredIngredients = mainIngredients.filter((_, i) => i !== index);
+    setMainIngredients(filteredIngredients);
+  };
+  
+  //Handle meal submission
   const handleAddMeal = (ev)=> {
     ev.preventDefault();
 
@@ -24,14 +54,11 @@ function AddMealForm({addMeal}) {
     const newMeal = {
       title: mealTitle,
       plate_id: Date.now(),
-      type: mealType
+      type: mealType,
+      ingredients: mainIngredients
     };
 
     addMeal(newMeal);
-  }
-
-  const handleChangeType = (ev)=> {
-    setMealType((prev) => ev.target.checked ? [...prev, ev.target.value] : prev.filter((t) => t !== ev.target.value));
   }
 
   //Renders type of meal checkbox
@@ -41,13 +68,29 @@ function AddMealForm({addMeal}) {
         <input
           type="checkbox"
           value={type}
-          name="type[]"
-          onChange={handleChangeType}
-          
+          onChange={handleChangeType} 
         />
         {" "}{type}
       </label>
     </li> 
+  ))
+
+  //Renders ingredients input
+  const ingredients = mainIngredients.map((ingredient, index) => (
+    <div key={index}>
+      <label> 
+      Ingredient {index + 1}: 
+      <input 
+        type="text"
+        value={ingredient}
+        className="form-text-input"
+        onChange={handleChangeIngredient(index)} 
+      />
+    </label>
+    <button type="button" onClick={() => handleRemoveIngredient(index)}>
+      X
+    </button>
+    </div>
   ))
 
   return (
@@ -72,6 +115,15 @@ function AddMealForm({addMeal}) {
           <ul role="group" aria-labelledby="type-selection-legend">
             {typeSelection}
           </ul>
+        </fieldset>
+        <fieldset>
+          <legend>Enter up to 3 main ingredients for your meal:</legend>
+          {ingredients}
+          {mainIngredients.length < 3 && (
+            <button type="button" onClick={handleAddIngredient}>
+              Add Ingredient
+            </button>
+          )}
         </fieldset>
         
         {errorMsg}
