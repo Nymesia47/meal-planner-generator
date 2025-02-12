@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import "/src/styles/Form.scss";
 
 function AddMealForm({addMeal}) {
   const [mealTitle, setMealTitle] = useState("");
@@ -108,7 +109,7 @@ function AddMealForm({addMeal}) {
   ))
 
   return (
-    <section>
+    <section className="form-container">
       <h2 className="form-title" >Add a meal to your library</h2>
       <form className="form" onSubmit={handleAddMeal}>
         <label htmlFor="title">
