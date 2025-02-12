@@ -8,6 +8,7 @@ function AddMealForm({addMeal}) {
   const [mealType, setMealType] = useState([]);
   const [mainIngredients, setMainIngredients] = useState([]);
   const [prepTime, setPrepTime] = useState("");
+  const [extraInfo, setExtraInfo] = useState("");
 
   //Handle Meal Type selection
   const handleChangeType = (ev)=> {
@@ -40,7 +41,12 @@ function AddMealForm({addMeal}) {
   //Handle Prep-time selection
   const handlePrepTimeChange = (ev) => {
     setPrepTime(ev.target.value);
-  }
+  };
+
+  //Extra information input
+  const handleExtraInfoChange = (ev) => {
+    setExtraInfo(ev.target.value);
+  };
   
   //Handle meal submission
   const handleAddMeal = (ev)=> {
@@ -62,7 +68,8 @@ function AddMealForm({addMeal}) {
       plate_id: Date.now(),
       type: mealType,
       ingredients: mainIngredients,
-      prepTime: prepTime
+      prepTime: prepTime,
+      extraInfo: extraInfo
     };
 
     addMeal(newMeal);
@@ -142,7 +149,7 @@ function AddMealForm({addMeal}) {
             value="fast"
             checked={prepTime === "fast"}
             onChange={handlePrepTimeChange}
-            /> Quick and Easy
+            />{" "}Quick and Easy
           </label>
           <label htmlFor="moderate">
             <input 
@@ -152,7 +159,7 @@ function AddMealForm({addMeal}) {
             value="moderate"
             checked={prepTime === "moderate"}
             onChange={handlePrepTimeChange}
-            /> Moderate
+            />{" "}Moderate
           </label>
           <label htmlFor="long">
             <input 
@@ -161,8 +168,20 @@ function AddMealForm({addMeal}) {
             name="prep-time" 
             value="long"
             checked={prepTime === "long"}
-            onChange={handlePrepTimeChange}/> Time-Consuming
+            onChange={handlePrepTimeChange}/>{" "}Time-Consuming
           </label>
+        </fieldset>
+        <fieldset>
+          <legend>Additional Information</legend>
+          <label htmlFor="extra-info">Anything else you want to remember about this meal:</label>
+            <textarea 
+              id="extra-info"
+              name="extra-info"
+              rows="4" 
+              cols="35"
+              value={extraInfo} 
+              onChange={handleExtraInfoChange}
+            />
         </fieldset>
         
         {errorMsg}
