@@ -7,6 +7,7 @@ function AddMealForm({addMeal}) {
   const mealTypeOptions = ["Breakfast", "Lunch", "Dinner", "Side", "Dessert"];
   const [mealType, setMealType] = useState([]);
   const [mainIngredients, setMainIngredients] = useState([]);
+  const [prepTime, setPrepTime] = useState("");
 
   //Handle Meal Type selection
   const handleChangeType = (ev)=> {
@@ -35,6 +36,11 @@ function AddMealForm({addMeal}) {
     const filteredIngredients = mainIngredients.filter((_, i) => i !== index);
     setMainIngredients(filteredIngredients);
   };
+
+  //Handle Prep-time selection
+  const handlePrepTimeChange = (ev) => {
+    setPrepTime(ev.target.value);
+  }
   
   //Handle meal submission
   const handleAddMeal = (ev)=> {
@@ -55,7 +61,8 @@ function AddMealForm({addMeal}) {
       title: mealTitle,
       plate_id: Date.now(),
       type: mealType,
-      ingredients: mainIngredients
+      ingredients: mainIngredients,
+      prepTime: prepTime
     };
 
     addMeal(newMeal);
@@ -124,6 +131,38 @@ function AddMealForm({addMeal}) {
               Add Ingredient
             </button>
           )}
+        </fieldset>
+        <fieldset>
+          <legend id="type-selection-legend">Preparation time</legend>
+          <label htmlFor="fast">
+            <input 
+            type="radio" 
+            id="fast" 
+            name="prep-time" 
+            value="fast"
+            checked={prepTime === "fast"}
+            onChange={handlePrepTimeChange}
+            /> Quick and Easy
+          </label>
+          <label htmlFor="moderate">
+            <input 
+            type="radio" 
+            id="moderate" 
+            name="prep-time" 
+            value="moderate"
+            checked={prepTime === "moderate"}
+            onChange={handlePrepTimeChange}
+            /> Moderate
+          </label>
+          <label htmlFor="long">
+            <input 
+            type="radio" 
+            id="long" 
+            name="prep-time" 
+            value="long"
+            checked={prepTime === "long"}
+            onChange={handlePrepTimeChange}/> Time-Consuming
+          </label>
         </fieldset>
         
         {errorMsg}
