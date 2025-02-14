@@ -112,13 +112,14 @@ function AddMealForm({addMeal}) {
     <section className="form-container">
       <h2 className="form-title" >Add a meal to your library</h2>
       <form className="form" onSubmit={handleAddMeal}>
-        <label htmlFor="title">
+        <label htmlFor="title" className="form-text-input-label">
           Meal:
           <input
             type="text"
             id="title"
             name="title"
             value={mealTitle}
+            placeholder="Spaghetti Bolognese"
             className="form-text-input"
             onChange={(ev) => setMealTitle(ev.target.value)}
             required
@@ -174,7 +175,7 @@ function AddMealForm({addMeal}) {
         </fieldset>
         <fieldset>
           <legend>Additional Information</legend>
-          <label htmlFor="extra-info">Anything else you want to remember about this meal:</label>
+          <label htmlFor="extra-info" className="form-label">Anything else you want to remember about this meal:</label>
             <textarea 
               id="extra-info"
               name="extra-info"
