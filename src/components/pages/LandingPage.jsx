@@ -9,20 +9,7 @@ import mealsAPI from "/src/services/api-meals";
 
 function LandingPage() {
 
-  const [mealOptions, setMealOptions] = useState([
-  // { plate_id: 1, title: "Spinach's Hamburger", type: ["Dinner"] },
-  // { plate_id: 2, title: "Sausages", type: ["Dinner"] },
-  // { plate_id: 3, title: "Empanadillas", type: ["Dinner"] },
-  // { plate_id: 4, title: "Pescado en salsa rubia", type: ["Dinner"] },
-  // { plate_id: 5, title: "Courgette's Frittata", type: ["Breakfast", "Dinner"] },
-  // { plate_id: 6, title: "Quesadillas", type: ["Dinner"] },
-  // { plate_id: 7, title: "Cream of Vegetables", type: ["Dinner"] },
-  // { plate_id: 8, title: "Pastina", type: ["Dinner"] },
-  // { plate_id: 9, title: "Cocido de arroz", type: ["Lunch", "Dinner"] },
-  // { plate_id: 10, title: "Courgette Penwheels", type: ["Dinner"] },
-  // { plate_id: 11, title: "Mini CheeseBurgers", type: ["Dinner"] },
-  // { plate_id: 12, title: "Eggs Muffins", type: ["Breakfast","Dinner"] }
-  ]);
+  const [mealOptions, setMealOptions] = useState([]);
 
   useEffect(() => {
     async function fetchAndFilterMeals() {
