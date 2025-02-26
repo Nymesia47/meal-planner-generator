@@ -7,7 +7,7 @@ function DayCard({weekDay, meal}) {
     <li className="dayCard">
         <h3>{weekDay}</h3>
         <ul className='dayCard-meals-list'>
-            <DayCardMeal title="Dinner" meal={meal ? meal.title : ""}/>
+            <DayCardMeal title="Dinner" meal={meal ? meal.meal_title: ""}/>
         </ul>
     </li>
   )

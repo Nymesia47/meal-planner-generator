@@ -1,8 +1,13 @@
 import PropTypes from "prop-types";
 import "/src/styles/ResultSection.scss";
 import DayCard from "../parts/DayCard";
+import { useEffect } from "react";
 
 function ResultSection({planningData, mealPlan}) {
+
+  useEffect(() => {
+    console.log("Updated mealPlan in ResultSection:", mealPlan);
+  }, [mealPlan]);
 
   const weekPlanHTML = planningData.days.map((day, index) => {
     const meal = mealPlan[index];
