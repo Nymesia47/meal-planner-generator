@@ -1,56 +1,199 @@
-.form {
-    background-color: #f5f5f5;
-    width: 90%;
-    margin: 10px auto;
-    padding: 10px;
+section {
+    max-width: 500px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f9f9f9; // form background color
     border-radius: 10px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    & legend {
-        font-weight: 600;
-        margin: 10px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    
+    .form-title {
+      text-align: center;
+      color: palevioletred; // pale violet
+      font-size: 1.5rem;
+      margin-bottom: 15px;
     }
-
-    & ul {
+  
+    .form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+  
+      label {
+        font-weight: bold;
+        margin-bottom: 5px;
+        display: block;
+      }
+  
+      input[type="text"], textarea {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd; // border color
+        border-radius: 5px;
+        font-size: 1rem;
+      }
+  
+      // Meal Type Selection - Two Column Layout
+      fieldset.meal-types {
         display: flex;
         flex-wrap: wrap;
-        padding: 10px;
         gap: 10px;
-
-    }
-
-    & label {
-        display: block;
-        margin: 5px;
-    }
-
-    &-text-input {
-        padding: 2px;
-        margin: 5px;
-    }
-
-    &-button {
-        width: 60%;
-        background-color: rgb(28, 216, 191);
+        border: 1px solid #ddd; // border color
+        padding: 10px;
+        border-radius: 5px;
+        background: white;
+  
+        legend {
+          font-weight: bold;
+          color: palevioletred; // pale violet
+        }
+  
+        ul {
+          display: grid;
+          grid-template-columns: repeat(2, 1fr); // Two columns
+          gap: 10px;
+  
+          li {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+          }
+        }
+      }
+  
+      // Ingredients Input on One Line with Delete Button
+      .ingredient-container {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+  
+        input {
+          flex: 1; // Takes remaining space
+        }
+  
+        button {
+          background-color: #f78da7; // pink
+          color: white;
+          border: none;
+          padding: 6px 10px;
+          cursor: pointer;
+          border-radius: 5px;
+          font-size: 0.9rem;
+          transition: background 0.3s ease;
+  
+          &:hover {
+            background-color: palevioletred; 
+          }
+        }
+      }
+  
+      // Radio Buttons (Same as before)
+      fieldset {
+        border: 1px solid #ddd; // border color
+        padding: 10px;
+        border-radius: 5px;
+        background: white;
+  
+        legend {
+          font-weight: bold;
+          color: palevioletred; // pale violet
+        }
+  
+        label {
+          display: flex;
+          align-items: center;
+          gap: 8px;
+          margin-bottom: 8px;
+        }
+  
+        input[type="radio"] {
+          transform: scale(1.2);
+        }
+      }
+  
+      // Submit Button
+      button {
+        background-color: #f78da7; // pink
+        color: white;
+        padding: 10px;
+        border: none;
+        border-radius: 5px;
         font-size: 1rem;
-        width: 35%;
-        border-radius: 10px;
-        padding: 5px 10px;
-        margin-top: 10px;
-        text-align: center;
-        color: black;
-        font-weight: 600;
+        cursor: pointer;
+        transition: background 0.3s ease;
+  
+        &:hover {
+          background-color: pink; // pale violet hover
+        }
+      }
     }
+  
+    p {
+      text-align: center;
+      font-weight: bold;
+      color: black; // pale violet
+    }
+  
+    .error-message {
+      color: #f78da7; // pink
+      font-weight: bold;
+      text-align: center;
+    }
+  }
+
+
+// .form {
+//     background-color: #f5f5f5;
+//     width: 90%;
+//     margin: 10px auto;
+//     padding: 10px;
+//     border-radius: 10px;
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+
+//     & legend {
+//         font-weight: 600;
+//         margin: 10px auto;
+//     }
+
+//     & ul {
+//         display: flex;
+//         flex-wrap: wrap;
+//         padding: 10px;
+//         gap: 10px;
+
+//     }
+
+//     & label {
+//         display: block;
+//         margin: 5px;
+//     }
+
+//     &-text-input {
+//         padding: 2px;
+//         margin: 5px;
+//     }
+
+//     &-button {
+//         width: 60%;
+//         background-color: rgb(28, 216, 191);
+//         font-size: 1rem;
+//         width: 35%;
+//         border-radius: 10px;
+//         padding: 5px 10px;
+//         margin-top: 10px;
+//         text-align: center;
+//         color: black;
+//         font-weight: 600;
+//     }
     
-}
+// }
 
-.form-title {
-    font-size: 22px;
-    text-align: center;
-}
+// .form-title {
+//     font-size: 22px;
+//     text-align: center;
+// }
 
-.errorMsg {
-    color: red;
-}
+// .errorMsg {
+//     color: red;
+// }

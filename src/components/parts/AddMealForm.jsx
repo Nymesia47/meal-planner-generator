@@ -1,5 +1,4 @@
 import { useState } from "react";
-import PropTypes from "prop-types";
 import mealsAPI from "/src/services/api-meals.jsx";
 
 function AddMealForm() {
@@ -206,7 +205,3 @@ function AddMealForm() {
 }
 
 export default AddMealForm;
-
-AddMealForm.propTypes = {
-  addMeal: PropTypes.func.isRequired
-}
