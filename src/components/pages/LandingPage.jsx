@@ -56,10 +56,10 @@ function LandingPage() {
     setActiveForm((prevForm) => (prevForm === formType ? null : formType));
   }
 
-  //function to add a new meal
-  const addMeal = (newMeal)=> {
-    setMealOptions((prevMeals) => [...prevMeals, newMeal])
-  }
+  // //function to add a new meal
+  // const addMeal = (newMeal)=> {
+  //   setMealOptions((prevMeals) => [...prevMeals, newMeal])
+  // }
   
 
 

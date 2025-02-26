@@ -1,7 +1,8 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import mealsAPI from "/src/services/api-meals.jsx";
 
-function AddMealForm({addMeal}) {
+function AddMealForm() {
   const [mealTitle, setMealTitle] = useState("");
   const [errorMsg, setErrorMsg] = useState("");
   const mealTypeOptions = ["Breakfast", "Lunch", "Dinner", "Side", "Dessert"];
@@ -9,6 +10,7 @@ function AddMealForm({addMeal}) {
   const [mainIngredients, setMainIngredients] = useState([]);
   const [prepTime, setPrepTime] = useState("");
   const [extraInfo, setExtraInfo] = useState("");
+  const [resultMessage, setResultMessage] = useState("");
 
   //Handle Meal Type selection
   const handleChangeType = (ev)=> {
@@ -49,7 +51,7 @@ function AddMealForm({addMeal}) {
   };
   
   //Handle meal submission
-  const handleAddMeal = (ev)=> {
+  const handleAddMeal = async (ev)=> {
     ev.preventDefault();
 
     if (!mealTitle || mealType.length === 0) {
@@ -65,14 +67,24 @@ function AddMealForm({addMeal}) {
 
     const newMeal = {
       title: mealTitle,
-      plate_id: Date.now(),
-      type: mealType,
       ingredients: mainIngredients,
       prepTime: prepTime,
-      extraInfo: extraInfo
+      extraInfo: extraInfo,
+      mealType: mealType,
     };
 
-    addMeal(newMeal);
+    const result = await mealsAPI.addMeal(newMeal);
+
+    if (result.success) {
+      setMealTitle("");
+      setMealType([]);
+      setMainIngredients([]);
+      setPrepTime("");
+      setExtraInfo("");
+      setResultMessage("Meal added successfully!");
+    } else {
+      setErrorMsg(<p className="errorMsg">Error: {result.message}</p>);
+    }
   }
 
   //Renders type of meal checkbox
@@ -112,7 +124,7 @@ function AddMealForm({addMeal}) {
       <h2 className="form-title" >Add a meal to your library</h2>
       <form className="form" onSubmit={handleAddMeal}>
         <label htmlFor="title">
-          Meal:
+          Meal Title:
           <input
             type="text"
             id="title"
@@ -187,6 +199,8 @@ function AddMealForm({addMeal}) {
         {errorMsg}
       <button className="form-button" type="submit" onClick={handleAddMeal}> Add Meal</button>
       </form>
+      <p>{resultMessage}</p>
+      {errorMsg && <div>{errorMsg}</div>}
     </section>
   )
 }
