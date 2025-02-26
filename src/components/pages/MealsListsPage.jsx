@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import "/src/styles/MealsListPage.scss";
 import mealsAPI from "/src/services/api-meals.jsx";
+import Header from "../layoutComponents/Header";
+import Footer from "../layoutComponents/Footer";
+import { useNavigate } from "react-router-dom";
 
 function MealsListsPage() {
   const [meals, setMeals] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     async function loadMeals() {
@@ -25,7 +29,10 @@ function MealsListsPage() {
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div>
+    <>
+    <Header />
+    <main>
+      <button className="backButton" onClick={() => navigate("/")}>Back to home</button>
       <h1>My Saved Meals</h1>
       <ul className="mealList">
         {meals.map((meal) => (
@@ -36,7 +43,10 @@ function MealsListsPage() {
           </li>
         ))}
       </ul>
-    </div>
+    </main>
+    <Footer />
+    </>
+    
   );
 }
 

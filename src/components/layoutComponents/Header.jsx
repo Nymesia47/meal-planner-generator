@@ -1,6 +1,9 @@
-import "/src/styles/Header.scss"
+import "/src/styles/Header.scss";
+
 
 function Header() {
+
+
   return (
     <header>
       <h1>Easy Meal Planning</h1>
@@ -8,4 +11,4 @@ function Header() {
   )
 }
 
-export default Header
+export default Header;
