@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import "/src/styles/MealsListPage.scss";
+import mealsAPI from "/src/services/api-meals.jsx";
 
 function MealsListsPage() {
   const [meals, setMeals] = useState([]);
@@ -7,22 +8,17 @@ function MealsListsPage() {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    async function fetchMeals() {
+    async function loadMeals() {
       try {
-        const response = await fetch("http://localhost:3306/meals"); // Replace when deployed
-        if (!response.ok) {
-          throw new Error("Failed to fetch meals");
-        }
-        const data = await response.json();
+        const data = await mealsAPI.fetchMeals(); 
         setMeals(data.results);
       } catch (err) {
         setError(err.message);
       } finally {
         setLoading(false);
       }
-    }
-
-    fetchMeals();
+    };
+    loadMeals();
   }, []);
 
   if (loading) return <p>Loading meals...</p>;
@@ -44,4 +40,4 @@ function MealsListsPage() {
   );
 }
 
-export default MealsListsPage
+export default MealsListsPage;
